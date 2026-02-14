@@ -12,8 +12,8 @@ export const registerValidation = [
     body("name")
     .notEmpty().withMessage("Name is required"),
 
-    body("email").trim().toLowerCase().notEmpty().withMessage("Email is required")
-    .isEmail().withMessage("Invalid email format").normalizeEmail(),
+    body("email").notEmpty().withMessage("Email is required")
+    .isEmail().withMessage("Invalid email format").normalizeEmail(), // normalizeEmail() it cleans and standardizes email, like converts it to lowercase, trims spaces and Standardizes some provider-specific formats
     
     body("password").notEmpty().withMessage("Password is required")
     .isLength({ min: 6}).withMessage("Password must be atleast 6 characters long")
